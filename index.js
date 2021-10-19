@@ -12,11 +12,11 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+const port = 5000;
 
 
 
-
-app.listen(5000, () => console.log('Listening to port 5000'));
+app.listen(process.env.PORT || port);
 
 client.connect(err => {
 const formCollection = client.db("DeshiHub").collection("Form");
